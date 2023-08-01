@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration and Login System</title>
+   <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <nav style="height: 50px; background-color: blanchedalmond;">
+        <div style="margin: 10px;">
+            <h1>logo</h1>
+        </div>
+
+        <div style="margin-top: 10px;margin-bottom: 10px;
+         font-size: 22px;
+         
+         
+         margin-right: 50px;">
+           
+            <a  style="margin: 15px;
+            text-decoration: none;" th:href="${session.username != null} ? @{/public/} : @{/public/login}" th:text = "${session.username != null} ? ${session.username} : 'login'"></a>
+            <a style="text-decoration: none;" th:href="${session.username != null} ? @{/logout} : @{/public/register}" th:text = "${session.username != null} ? 'logout' : 'register'"></a>
+        
+        </div>
+    </nav>
+
+
+    <h1 style="text-align: center;
+    margin-top: 30%;">Hello World </h1>
+
+
+</body>
+</html>

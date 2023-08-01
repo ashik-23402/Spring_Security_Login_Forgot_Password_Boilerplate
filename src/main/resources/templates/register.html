@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration and Login System</title>
+    
+  
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+          background-color: rgb(250, 247, 247);
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid whitesmoke;
+            width: 60%;
+            font-size: large;
+            border-radius: 8px;
+            box-shadow: 5px;
+            background-color: rgb(180, 230, 211);
+            margin-top: 20%;
+           
+        }
+        #form{
+
+            margin-left: 30%;
+            box-shadow: 5px;
+            
+            
+        }
+
+        input{
+
+          height: 25px;
+          width: 90%;
+          
+          margin: 2px;
+          border: 1px solid black;
+          border-radius: 6px;
+          font-size: large;
+
+        }
+
+
+    </style>
+
+
+  </head>
+  <body>
+    
+
+    <div id="form">
+      <form action="save" method="post">
+        <h3 style="text-align: center;margin: 40px;">For Registration Fill this form</h3>
+        
+        <h3 style="text-align: center;margin: 40px;" th:if="${error == true}">Already have account of this Email</h3>
+
+        <div style="display: block; width: 80%; margin-bottom: 5px; height: 70px;">
+          <label for="firstName"> First Name </label>
+          <input type="text" name="firstName" required />
+        </div>
+
+        <div style="display: block;width: 80%;margin-bottom: 5px;height: 70px;">
+          <label for="lastName"> Last Name </label>
+          <input type="text" name="lastName"  required />
+        </div>
+
+        <div style="display: block; margin-right: 5px;width: 80%;margin-bottom: 5px;height: 70px;">
+            <label for="email"> Email </label>
+            <input type="email" name="email"  required/>
+          </div>
+
+          <div style="display: block;width: 80%;height: 70px;">
+            <label for="password"> Password </label>
+            <input type="password" name="password" required/>
+          </div>
+
+
+          <div>
+            <button style="height: 25px;width: 75px;
+            font-size: large; margin: 8px;cursor: pointer;">Submit</button>
+          </div>
+
+          <div style="height: 70px;margin-right: 300px;">
+            <p>Already have an Account ?<a th:href="@{/public/login}">LogIn</a></p>
+          </div>
+
+
+      </form>
+    </div>
+  </body>
+</html>
